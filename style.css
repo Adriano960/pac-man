@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive; /* Fonte Arcade */
+    background-color: #050505;
+    background-image: radial-gradient(#1a1a2e 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    touch-action: none; /* Previne zoom no mobile */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efeitos de Neon */
+.neon-text {
+    color: #ffdd00;
+    text-shadow: 0 0 10px #ffdd00, 0 0 20px #ff8800;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.neon-text-small {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.neon-text-red {
+    color: #ff003c;
+    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff0000;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.7rem;
+    color: #ccc;
+    padding: 0 10px;
+}
+
+.info span {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+/* Canvas Responsivo */
+.game-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    border: 2px solid #222;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+    background: #000;
+}
+
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+/* Botões Estilizados */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn {
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+.btn:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 20px #00ffff;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #111;
+    border: 2px solid #ff003c;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 0, 60, 0.3);
+    border-radius: 8px;
+    max-width: 90%;
+}
+
+.modal-content p {
+    margin: 20px 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.controls-hint {
+    margin-top: 10px;
+    font-size: 0.5rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Rodapé */
+.site-footer {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 12px;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 0.65rem;
+    color: #888;
+    border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Ajustes de responsividade adicionais */
+@media (max-width: 600px) {
+    .container { padding: 8px; }
+    .neon-text { font-size: 1.6rem; }
+    .neon-text-small { font-size: 0.95rem; }
+    .info { font-size: 0.65rem; }
+    .menu { max-width: 100%; }
+    .btn { padding: 12px; font-size: 0.75rem; }
+    .game-wrapper { margin: 8px 0; }
+    .modal-content { padding: 20px; }
+}
+
+@media (max-width: 420px) {
+    .neon-text { font-size: 1.3rem; }
+    .neon-text-small { font-size: 0.85rem; }
+    .info { font-size: 0.6rem; }
+    .btn { padding: 11px; font-size: 0.7rem; }
+    .controls-hint { font-size: 0.45rem; }
+    .site-footer { font-size: 0.6rem; padding: 6px 8px; }
+    .modal-content { margin: 0 12px; }
+}
+
+@media (max-width: 360px) {
+    .neon-text { font-size: 1.1rem; }
+    .neon-text-small { font-size: 0.8rem; }
+    .info { font-size: 0.55rem; }
+    .btn { padding: 10px; font-size: 0.68rem; }
+    .controls-hint { font-size: 0.42rem; }
+    .site-footer { font-size: 0.55rem; }
+}
+
+/* Garante que o canvas não extrapole o container e seja escalável em telas pequenas */
+canvas { width: 100% !important; height: auto !important; display: block; }
+
+/* Modal responsivo: limita largura e torna conteúdo legível em telas pequenas */
+.modal-content { max-width: 420px; width: 90%; }
+
+/* Melhora alvo de toque para botões em telas sensíveis ao toque */
+.btn { min-width: 120px; }

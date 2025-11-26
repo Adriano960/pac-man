@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pac-Man Neon JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="neon-text">PAC-MAN</h1>
+            <div class="info">
+                <div class="info-item">SCORE <span id="score">0</span></div>
+                <div class="info-item">LIVES <span id="lives">3</span></div>
+                <div class="info-item">LEVEL <span id="level">1</span></div>
+            </div>
+        </div>
+
+        <div id="menu" class="menu">
+            <h2 class="neon-text-small">SELECT DIFFICULTY</h2>
+            <button class="btn" onclick="startGame('easy')">EASY</button>
+            <button class="btn" onclick="startGame('medium')">MEDIUM</button>
+            <button class="btn" onclick="startGame('hard')">HARD</button>
+        </div>
+
+        <div id="gameContainer" class="game-wrapper" style="display: none;">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <!-- Modals -->
+        <div id="gameOver" class="modal">
+            <div class="modal-content">
+                <h2 class="neon-text-red">GAME OVER</h2>
+                <p>FINAL SCORE: <span id="finalScore">0</span></p>
+                <div class="modal-buttons">
+                    <button class="btn" onclick="restartGame()">REINICIAR</button>
+                    <button class="btn" onclick="openDifficultyMenuFromGameOver()">ESCOLHER DIFICULDADE</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="levelComplete" class="modal">
+            <div class="modal-content">
+                <h2 class="neon-text">LEVEL CLEAR!</h2>
+                <p>SCORE: <span id="levelScore">0</span></p>
+                <button class="btn" onclick="nextLevel()">NEXT LEVEL</button>
+            </div>
+        </div>
+
+        <div class="controls-hint">
+            <p>Desktop: Setas / WASD &bull; Mobile: Deslize o dedo</p>
+        </div>
+
+        <footer class="site-footer">
+            <p> 3º ano DS  —  CETI JP</p>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

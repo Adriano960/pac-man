@@ -1,0 +1,10 @@
+<!-- Favicon SVG simples estilo Pac-Man -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="100%" height="100%" fill="#050505"/>
+  <!-- Pac-Man amarelo -->
+  <g transform="translate(10,8)">
+    <circle cx="22" cy="22" r="18" fill="#ffdd00"/>
+    <!-- Boca recortada -->
+    <path d="M22 22 L40 10 A22 22 0 0 0 40 34 Z" fill="#050505"/>
+  </g>
+</svg>
